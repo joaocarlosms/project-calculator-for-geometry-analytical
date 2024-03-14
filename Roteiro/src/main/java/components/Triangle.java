@@ -38,8 +38,8 @@ public class Triangle {
     }
     
     public double calculateDistance() {
-        double difX = ponts[2].getX() - ponts[1].getX();
-        double difY = ponts[2].getY() - ponts[1].getY();
+        double difX = ponts[0].getX() - ponts[1].getX();
+        double difY = ponts[0].getY() - ponts[1].getY();
         difX = Math.pow(difX, 2);
         difY = Math.pow(difY, 2);
         double result = Math.sqrt(difX + difY);
@@ -49,12 +49,12 @@ public class Triangle {
     
     public double calculateDet() {
         double det = 
-                ponts[1].getX() * ponts[2].getY() +
-                ponts[2].getX() * ponts[3].getY() + //Até aqui é a primeira parcela
-                ponts[3].getX() * ponts[1].getY() -
-                ponts[1].getY() * ponts[2].getX() -
-                ponts[2].getY() * ponts[3].getX() -
-                ponts[3].getY() * ponts[1].getX(); //Até aqui é a segunda parcela           
+                ponts[0].getX() * ponts[1].getY() +
+                ponts[1].getX() * ponts[2].getY() + //Até aqui é a primeira parcela
+                ponts[2].getX() * ponts[0].getY() -
+                ponts[0].getY() * ponts[2].getX() -
+                ponts[2].getY() * ponts[1].getX() -
+                ponts[1].getY() * ponts[0].getX(); //Até aqui é a segunda parcela           
         
         return det;
     }

@@ -36,9 +36,17 @@ public class Square {
     }
     
     public boolean verifySidesSquare() {
+        double lastDistance = calculateDistance(ponts[3], ponts[0]);
+        
         for(int i = 0; i < ponts.length; i++) {
-            if()uyfygfhg
+           double currentDistance = calculateDistance(ponts[i], ponts[i+1]);
+           if(currentDistance != lastDistance){
+               return false;
+           }
         }
+        System.out.println("Quadrado com todos os lados iguais,"
+                + "logo é um quadrado equilátero");
+        return true;
     }
     
     public double calculateDistance(Ponts p, Ponts q) {
@@ -50,24 +58,34 @@ public class Square {
     }
     
     public double calculatePerimeter() {
-        double soma = 0.0;
+        if(verifySidesSquare()) {
+            double soma = 0.0;
         
-        for(int i = 0; i < ponts.length; i++) {
-            if(i == 3) {
-                soma += calculateDistance(ponts[0], ponts[3]);
+            for(int i = 0; i < ponts.length; i++) {
+                if(i == 3) {
+                    soma += calculateDistance(ponts[0], ponts[3]);
+                }
+                else {
+                    soma += calculateDistance(ponts[i], ponts[i+1]);
+                }
             }
-            else {
-                soma += calculateDistance(ponts[i], ponts[i+1]);
-            }
-        }
         return soma;
+        }
+        else {
+            System.out.println("Os lados naão formam um quadrado");
+            return 0;
+        }
     }
     
     public double calculateArea() {
-        //verify square
+        if(verifySidesSquare()) {
+            double result = Math.pow(calculateDistance(ponts[0], ponts[1]), 2);
         
-        double result = Math.pow(calculateDistance(ponts[0], ponts[1]), 2);
-        
-        return result;
+            return result;
+        }
+        else {
+            System.out.println("Os lados naão formam um quadrado");
+            return 0;
+        }
     }
 }
