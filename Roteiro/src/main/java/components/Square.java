@@ -37,7 +37,7 @@ public class Square {
     
     public boolean verifySidesSquare() {
         for(int i = 0; i < ponts.length; i++) {
-            if(ponts[i] != ponts[i + 1])
+            if()uyfygfhg
         }
     }
     
